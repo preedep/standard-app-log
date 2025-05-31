@@ -118,29 +118,29 @@ PIILogBuilder --> PIILogUpdate
 ## Table of Attributes
 ## 🧾 Application Log Structure
 
-| Attribute Name         | Data Type                      | Example Value                                 | Description                                                       | Required / Optional |
-|------------------------|--------------------------------|-----------------------------------------------|-------------------------------------------------------------------|---------------------|
-| `event_date_time`      | `DateTime<Utc>`                | `"2025-05-31T10:23:21.066Z"`                   | Timestamp in ISO 8601 format                                     | Required            |
-| `log_type`             | `LogType` (Enum)               | `"REQ_LOG"`                                    | Type of log                                                       | Required            |
-| `app_id`               | `Option<String>`               | `"AP1234"`                                     | Application ID                                                    | Optional            |
-| `app_version`          | `Option<String>`               | `"1.0.1"`                                      | Application version                                               | Optional            |
-| `app_address`          | `Option<String>`               | `"10.0.0.1:8080"`                              | Application IP/Port                                               | Optional            |
-| `geo_location`         | `Option<String>`               | `"az-southeastasia"`                           | Azure region / Data center location                               | Optional            |
-| `service_id`           | `Option<String>`               | `"log-service"`                                | Service name or ID                                                | Optional            |
-| `service_version`      | `Option<String>`               | `"v1.2.3"`                                     | Version or image tag                                              | Optional            |
-| `service_pod_name`     | `Option<String>`               | `"pod-app-log"`                                | K8s pod name                                                       | Optional            |
-| `code_location`        | `Option<String>`               | `"gateway::handler"`                           | Module or function path                                           | Optional            |
-| `caller_channel_name`  | `Option<String>`               | `"CAPI"`                                       | Channel name                                                      | Optional            |
-| `caller_user`          | `Option<String>`               | `"t12345"`                                     | User who invoked                                                  | Optional            |
-| `caller_address`       | `Option<String>`               | `"12.0.1.1"`                                   | IP address of caller                                              | Optional            |
-| `correlation_id`       | `Option<String>`               | `"2cc6142a-10e8..."`                            | UUID for end-to-end tracing                                       | Optional            |
-| `request_id`           | `Option<String>`               | `"3d19fd66-2251..."`                            | UUID per HTTP request                                             | Optional            |
-| `level`                | `LogLevel` (Enum)              | `"info"`                                       | Log severity: info, debug, warn, error                            | Required            |
-| `execution_time`       | `Option<u32>`                  | `300`                                          | Time taken to execute (ms)                                        | Optional            |
-| `message`              | `Option<String>`               | `"Application started"`                        | Descriptive message                                               | Optional            |
-| `request`              | `Option<Request>`              | *(See request table)*                          | Request details                                                   | Optional            |
-| `response`             | `Option<Response>`             | *(See response table)*                         | Response details                                                  | Optional            |
-| `pii_log`              | `Option<PIILog>`               | *(See PII log table)*                          | PII-related activity                                               | Optional            |
+| Attribute Name        | Data Type                                                                                                        | Example Value                | Description                                                                  | Required / Optional |
+|-----------------------|------------------------------------------------------------------------------------------------------------------|------------------------------|------------------------------------------------------------------------------|---------------------|
+| `event_date_time`     | `DateTime<Utc>`                                                                                                  | `"2025-05-31T10:23:21.066Z"` | Timestamp in ISO 8601 format                                                 | Required            |
+| `log_type`            | `LogType` (Enum)<br/> - APP_LOG<br/> - REQ_LOG<br/> - REQ_EX_LOG<br/> - RES_LOG<br/> - RES_EX_LOG<br/> - PII_LOG | `"REQ_LOG"`                  | Type of log                                                                  | Required            |
+| `app_id`              | `Option<String>`                                                                                                 | `"AP1234"`                   | Application ID                                                               | Optional            |
+| `app_version`         | `Option<String>`                                                                                                 | `"1.0.1"`                    | Application version                                                          | Optional            |
+| `app_address`         | `Option<String>`                                                                                                 | `"10.0.0.1:8080"`            | Application IP/Port                                                          | Optional            |
+| `geo_location`        | `Option<String>`                                                                                                 | `"az-southeastasia"`         | Azure region / Data center location                                          | Optional            |
+| `service_id`          | `Option<String>`                                                                                                 | `"log-service"`              | Service name or ID                                                           | Optional            |
+| `service_version`     | `Option<String>`                                                                                                 | `"v1.2.3"`                   | Version or image tag                                                         | Optional            |
+| `service_pod_name`    | `Option<String>`                                                                                                 | `"pod-app-log"`              | K8s pod name                                                                 | Optional            |
+| `code_location`       | `Option<String>`                                                                                                 | `"gateway::handler"`         | Module or function path                                                      | Optional            |
+| `caller_channel_name` | `Option<String>`                                                                                                 | `"CAPI"`                     | Channel name which invoking                                                  | Optional            |
+| `caller_user`         | `Option<String>`                                                                                                 | `"t12345"`                   | User who invoked (required in-case PII Log)                                  | Optional            |
+| `caller_address`      | `Option<String>`                                                                                                 | `"12.0.1.1"`                 | IP address of caller (required in-case PII Log)                              | Optional            |
+| `correlation_id`      | `Option<String>`                                                                                                 | `"2cc6142a-10e8..."`         | UUID for end-to-end tracing                                                  | Optional            |
+| `request_id`          | `Option<String>`                                                                                                 | `"3d19fd66-2251..."`         | UUID per HTTP request (request_id must same for linked request and response) | Optional            |
+| `level`               | `LogLevel` (Enum) - INFO<br/>- DEBUG<br/>- WARN<br/>- ERROR                                                      | `"info"`                     | Log severity: info, debug, warn, error                                       | Required            |
+| `execution_time`      | `Option<u32>`                                                                                                    | `300`                        | Time taken to execute (ms)                                                   | Optional            |
+| `message`             | `Option<String>`                                                                                                 | `"Application started"`      | Descriptive message                                                          | Optional            |
+| `request`             | `Option<Request>`                                                                                                | *(See request table)*        | Request details                                                              | Optional            |
+| `response`            | `Option<Response>`                                                                                               | *(See response table)*       | Response details                                                             | Optional            |
+| `pii_log`             | `Option<PIILog>`                                                                                                 | *(See PII log table)*        | PII-related activity                                                         | Optional            |
 
 ---
 
@@ -159,33 +159,33 @@ PIILogBuilder --> PIILogUpdate
 
 ## 📤 Response
 
-| Attribute Name | Data Type                 | Example Value        | Description                    | Required / Optional |
-|----------------|---------------------------|----------------------|--------------------------------|---------------------|
-| `status_code`  | `u32`                     | `200`                | HTTP status code               | Required            |
-| `headers`      | `HashMap<String, String>` | `{"Content-Type":""}`| HTTP headers                   | Required            |
-| `body`         | `serde_json::Value`       | `{"name":"John"}`    | Response body                  | Required            |
+| Attribute Name | Data Type                 | Example Value         | Description      | Required / Optional |
+|----------------|---------------------------|-----------------------|------------------|---------------------|
+| `status_code`  | `u32`                     | `200`                 | HTTP status code | Required            |
+| `headers`      | `HashMap<String, String>` | `{"Content-Type":""}` | HTTP headers     | Required            |
+| `body`         | `serde_json::Value`       | `{"name":"John"}`     | Response body    | Required            |
 
 ---
 
 ## 🔐 PIILog
 
-| Attribute Name     | Data Type                                  | Example Value                              | Description                                | Required / Optional |
-|--------------------|---------------------------------------------|--------------------------------------------|--------------------------------------------|---------------------|
-| `event_type`       | `String`                                    | `"Update Customer Info"`                   | Action type on PII                          | Required            |
-| `search_criteria`  | `Option<HashMap<String, String>>`           | `{"ID":"12345"}`                            | Used to search for PII                      | Optional            |
-| `update`           | `Option<PIILogUpdate>`                      | See `PIILogUpdate` table                   | PII data update details                     | Optional            |
-| `new_values`       | `Option<HashMap<String, String>>`           | `{"Name":"John Doe"}`                       | New inserted PII data                       | Optional            |
-| `delete_key_values`| `Option<HashMap<String, String>>`           | `{"ID":"12345"}`                            | Deleted keys                                | Optional            |
+| Attribute Name      | Data Type                         | Example Value            | Description             | Required / Optional |
+|---------------------|-----------------------------------|--------------------------|-------------------------|---------------------|
+| `event_type`        | `String`                          | `"Update Customer Info"` | Action type on PII      | Required            |
+| `search_criteria`   | `Option<HashMap<String, String>>` | `{"ID":"12345"}`         | Used to search for PII  | Optional            |
+| `update`            | `Option<PIILogUpdate>`            | See `PIILogUpdate` table | PII data update details | Optional            |
+| `new_values`        | `Option<HashMap<String, String>>` | `{"Name":"John Doe"}`    | New inserted PII data   | Optional            |
+| `delete_key_values` | `Option<HashMap<String, String>>` | `{"ID":"12345"}`         | Deleted keys            | Optional            |
 
 ---
 
 ## 🔄 PIILogUpdate
 
-| Attribute Name  | Data Type                        | Example Value                            | Description                      | Required / Optional |
-|-----------------|-----------------------------------|------------------------------------------|----------------------------------|---------------------|
-| `previous_values` | `HashMap<String, String>`       | `{"Name":"John"}`                         | PII values before update         | Required            |
-| `new_values`      | `HashMap<String, String>`       | `{"Name":"John X"}`                       | Updated PII values               | Required            |
-| `key_values`      | `Option<HashMap<String, String>>` | `{"ID":"12345"}`                        | Key to identify data             | Optional            |
+| Attribute Name    | Data Type                         | Example Value       | Description              | Required / Optional |
+|-------------------|-----------------------------------|---------------------|--------------------------|---------------------|
+| `previous_values` | `HashMap<String, String>`         | `{"Name":"John"}`   | PII values before update | Required            |
+| `new_values`      | `HashMap<String, String>`         | `{"Name":"John X"}` | Updated PII values       | Required            |
+| `key_values`      | `Option<HashMap<String, String>>` | `{"ID":"12345"}`    | Key to identify data     | Optional            |
 
 ## Example
 ### General App Log (LogType: APP_LOG)
