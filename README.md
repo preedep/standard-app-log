@@ -42,6 +42,8 @@ class StdAppLog {
   +Option<String> caller_address
   +Option<String> correlation_id
   +Option<String> request_id
+  +Option<String> trace_id
+  +Option<String> span_id
   +LogLevel level
   +Option<u32> execution_time
   +Option<String> message
@@ -135,6 +137,8 @@ PIILogBuilder --> PIILogUpdate
 | `caller_address`      | `Option<String>`                                                                                                 | `"12.0.1.1"`                 | IP address of caller (required in-case PII Log)                              | Optional            |
 | `correlation_id`      | `Option<String>`                                                                                                 | `"2cc6142a-10e8..."`         | UUID for end-to-end tracing                                                  | Optional            |
 | `request_id`          | `Option<String>`                                                                                                 | `"3d19fd66-2251..."`         | UUID per HTTP request (request_id must same for linked request and response) | Optional            |
+| `trace_id`            | `Option<String>`                                                                                                 | `"14bd2b6e-420e..."`         | Trace ID for distributed tracing (for link with APM)                         | Optional            |  
+| `span_id`             | `Option<String>`                                                                                                 | `"14bd2b6e-420e..."`         | Span ID for distributed tracing (for link with APM)                          | Optional            |
 | `level`               | `LogLevel` (Enum) - INFO<br/>- DEBUG<br/>- WARN<br/>- ERROR                                                      | `"info"`                     | Log severity: info, debug, warn, error                                       | Required            |
 | `execution_time`      | `Option<u32>`                                                                                                    | `300`                        | Time taken to execute (ms)                                                   | Optional            |
 | `message`             | `Option<String>`                                                                                                 | `"Application started"`      | Descriptive message                                                          | Optional            |
