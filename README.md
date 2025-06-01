@@ -213,9 +213,10 @@ PIILogBuilder --> PIILogUpdate
 }
 ```
 ### Request Log (LogType: REQ_LOG)
+add trace_id and span_id for a link with APM
 ```json
 {
-  "event_date_time": "2025-05-31T10:23:21.066Z",
+  "event_date_time": "2025-06-01T10:33:45.430Z",
   "log_type": "REQ_LOG",
   "app_id": "AP1234",
   "app_version": "1.0.1",
@@ -226,13 +227,15 @@ PIILogBuilder --> PIILogUpdate
   "service_pod_name": "pod-req-log",
   "code_location": "gateway::handler",
   "caller_channel_name": "CAPI",
-  "correlation_id": "2cc6142a-10e8-4eee-a2bf-65411d9aa59e",
-  "request_id": "3d19fd66-2251-44fa-a667-a361bd23d6d3",
+  "correlation_id": "714a911e-496b-402b-844e-7e026bca33d9",
+  "request_id": "4ae7ca5b-2e44-4342-87ef-3899a0a4d018",
+  "trace_id": "d21d4797-cb24-403d-bd7e-3754fa0070cf",
+  "span_id": "ba59f196-8b42-4ff5-8422-8e012b391927",
   "level": "info",
   "execution_time": 12,
   "message": "Received API request",
   "request": {
-    "id": "3d19fd66-2251-44fa-a667-a361bd23d6d3",
+    "id": "4ae7ca5b-2e44-4342-87ef-3899a0a4d018",
     "host": "",
     "headers": {
       "X-Trace-Id": "abc123"
@@ -246,9 +249,10 @@ PIILogBuilder --> PIILogUpdate
 }
 ```
 ### Response Log (LogType: RES_LOG)
+add trace_id and span_id for a link with APM
 ```json
 {
-  "event_date_time": "2025-05-31T10:23:21.066Z",
+  "event_date_time": "2025-06-01T10:33:45.430Z",
   "log_type": "RES_LOG",
   "app_id": "AP1234",
   "app_version": "1.0.3",
@@ -259,8 +263,10 @@ PIILogBuilder --> PIILogUpdate
   "service_pod_name": "pod-res-log",
   "code_location": "payment::send_response",
   "caller_channel_name": "CAPI",
-  "correlation_id": "2cc6142a-10e8-4eee-a2bf-65411d9aa59e",
-  "request_id": "3d19fd66-2251-44fa-a667-a361bd23d6d3",
+  "correlation_id": "714a911e-496b-402b-844e-7e026bca33d9",
+  "request_id": "4ae7ca5b-2e44-4342-87ef-3899a0a4d018",
+  "trace_id": "d21d4797-cb24-403d-bd7e-3754fa0070cf",
+  "span_id": "ba59f196-8b42-4ff5-8422-8e012b391927",
   "level": "info",
   "execution_time": 20,
   "message": "Sent response to client",
@@ -275,6 +281,8 @@ PIILogBuilder --> PIILogUpdate
     }
   }
 }
+
+
 ```
 ### Request to External Service Log (LogType: REQ_EX_LOG)
 ```json
