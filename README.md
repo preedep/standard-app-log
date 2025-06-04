@@ -122,7 +122,7 @@ PIILogBuilder --> PIILogUpdate
   - ERROR: Error events that might still allow the application to continue running.
 
 ## Table of Attributes
-## 🧾 Application Log Structure
+## 🧾 Application Log Structure Layout
 
 | Attribute Name        | Data Type                                                                                                        | Example Value                | Description                                                                  | Required / Optional |
 |-----------------------|------------------------------------------------------------------------------------------------------------------|------------------------------|------------------------------------------------------------------------------|---------------------|
@@ -152,7 +152,7 @@ PIILogBuilder --> PIILogUpdate
 
 ---
 
-## 📥 Request
+## 📥 Request (REQ_LOG, REQ_EX_LOG)
 
 | Attribute Name | Data Type                 | Example Value        | Description                    | Required / Optional |
 |----------------|---------------------------|----------------------|--------------------------------|---------------------|
@@ -165,7 +165,7 @@ PIILogBuilder --> PIILogUpdate
 
 ---
 
-## 📤 Response
+## 📤 Response (RES_LOG, RES_EX_LOG)
 
 | Attribute Name | Data Type                 | Example Value         | Description      | Required / Optional |
 |----------------|---------------------------|-----------------------|------------------|---------------------|
@@ -175,7 +175,7 @@ PIILogBuilder --> PIILogUpdate
 
 ---
 
-## 🔐 PIILog
+## 🔐 PIILog (PII_LOG)
 
 | Attribute Name      | Data Type                         | Example Value            | Description                                      | Required / Optional |
 |---------------------|-----------------------------------|--------------------------|--------------------------------------------------|---------------------|
@@ -187,7 +187,7 @@ PIILogBuilder --> PIILogUpdate
 
 ---
 
-## 🔄 PIILogUpdate
+## 🔄 PIILogUpdate (Used in PII_LOG)
 
 | Attribute Name    | Data Type                         | Example Value       | Description              | Required / Optional |
 |-------------------|-----------------------------------|---------------------|--------------------------|---------------------|
