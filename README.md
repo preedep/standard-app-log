@@ -101,8 +101,6 @@ PIILogBuilder --> PIILogUpdate
 ```
 
 
-
-
 ## Description
 - **LogType**: Enum representing the type of log entry (e.g., application log, request log, etc.).
   - APP_LOG: General application log. 
@@ -111,6 +109,12 @@ PIILogBuilder --> PIILogUpdate
   - RES_LOG: Log to respond incoming requests. 
   - RES_EX_LOG: Log for response from external services. 
   - PII_LOG: Log for personally identifiable information events.
+
+**Note Log Type Usage**
+- _REQ_LOG and RES_LOG_ are used for logging incoming requests and responses from/to the caller application. They are typically used to track the flow of data through the application, including any transformations or processing that occurs. 
+- _REQ_EX_LOG and RES_EX_LOG_ are used for logging requests to and responses from external services. They are useful for tracking interactions with third-party APIs or services, including any errors or issues that may arise during those interactions.
+
+
 - **LogLevel**: Enum representing the severity level of the log entry (e.g., debug, info, warn, error).
   - INFO: Informational messages that highlight the progress of the application at a coarse-grained level.
   - DEBUG: Fine-grained informational events that are most useful to debug an application.
