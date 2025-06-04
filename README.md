@@ -177,13 +177,13 @@ PIILogBuilder --> PIILogUpdate
 
 ## 🔐 PIILog
 
-| Attribute Name      | Data Type                         | Example Value            | Description             | Required / Optional |
-|---------------------|-----------------------------------|--------------------------|-------------------------|---------------------|
-| `event_type`        | `String`                          | `"Update Customer Info"` | Action type on PII      | Required            |
-| `search_criteria`   | `Option<HashMap<String, String>>` | `{"ID":"12345"}`         | Used to search for PII  | Optional            |
-| `update`            | `Option<PIILogUpdate>`            | See `PIILogUpdate` table | PII data update details | Optional            |
-| `new_values`        | `Option<HashMap<String, String>>` | `{"Name":"John Doe"}`    | New inserted PII data   | Optional            |
-| `delete_key_values` | `Option<HashMap<String, String>>` | `{"ID":"12345"}`         | Deleted keys            | Optional            |
+| Attribute Name      | Data Type                         | Example Value            | Description                                      | Required / Optional |
+|---------------------|-----------------------------------|--------------------------|--------------------------------------------------|---------------------|
+| `event_type`        | `String`                          | `"Update Customer Info"` | Action type on PII or Function ID or Screen Name | Required            |
+| `search_criteria`   | `Option<HashMap<String, String>>` | `{"ID":"12345"}`         | Used to search for PII                           | Optional            |
+| `update`            | `Option<PIILogUpdate>`            | See `PIILogUpdate` table | PII data update details                          | Optional            |
+| `new_values`        | `Option<HashMap<String, String>>` | `{"Name":"John Doe"}`    | New inserted PII data                            | Optional            |
+| `delete_key_values` | `Option<HashMap<String, String>>` | `{"ID":"12345"}`         | Deleted keys                                     | Optional            |
 
 ---
 
