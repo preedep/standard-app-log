@@ -105,8 +105,8 @@ PIILogBuilder --> PIILogUpdate
 1. **LogType**: Enum representing the type of log entry (e.g., application log, request log, etc.).
   - APP_LOG: General application log. 
   - REQ_LOG: Log for incoming requests. 
-  - REQ_EX_LOG: Log for call to external services. 
-  - RES_LOG: Log to respond incoming requests. 
+  - RES_LOG: Log to respond incoming requests.
+  - REQ_EX_LOG: Log for call to external services.
   - RES_EX_LOG: Log for response from external services. 
   - PII_LOG: Log for personally identifiable information events.
 
